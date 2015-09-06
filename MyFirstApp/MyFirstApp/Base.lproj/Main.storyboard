@@ -34,6 +34,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COu-Ol-Vmb">
                                         <rect key="frame" x="0.0" y="75" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qai-cQ-90e"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -55,6 +58,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="vxf-la-QWI" secondAttribute="trailing" id="rmq-9C-ZUb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="toDoTextField" destination="UJ9-B4-Kie" id="XEr-KE-KPf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

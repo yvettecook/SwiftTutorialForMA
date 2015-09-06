@@ -81,9 +81,11 @@ It will teach you:
       2. In the 'Outline View', hold CTRL and click-drag from the `Stack View` to the `View` listed in the view heirachy, and selected `Leading Space to Container Margin`, `Trailing Space to Container Margin` and `Vertical Spacing to Top Layout Guide.` - tip: if you hold SHIFT whilst clicking, you can select more than one at a time.
       3. Lastly we need to make out `StackView` fill the width of the screen. Select the `StackView` and open the 'Size Inspector' in the 'Utility Area'. (The button that looks like a ruler). Under the 'Constraints' heading we can see our 3 constraints that we just set before.
 
-      ![stack](./screenshots/constraints.png)
+        ![stack](./screenshots/constraints.png)
 
-      Edit all three constraints in turn, making sure the constant value is set to 0. Your `StackView` size should update when you do this to fill the width of the Scene.
+        Edit all three constraints in turn, making sure the constant value is set to 0. Your `StackView` size should update when you do this to fill the width of the Scene.
+
+      4. Do the same for the `text field` so it spans the width of the `StackView`. CTRL-drag from the `text field` to the `StackView`. Add leading and trailing constraints, and make sure they are set to 0.
 
   12. Run the app! It should look something like this:
 
@@ -95,23 +97,23 @@ It will teach you:
 
   First, it's important to understand the relationship between your `storyboards` and `view controllers`.
 
-  > In a storyboard, a scene represents one screen of content and typically one view controller. View controllers implement your app’s behavior. View controllers coordinate the flow of information between the app’s data model, which encapsulates the app’s data, and the views that display that data, manage the life cycle of their content views, handle orientation changes when the device is rotated, define the navigation within your app, and implement the behavior to respond to user input.
+  > In a storyboard, a scene represents one screen of content and typically one view controller. View controllers implement your app’s behavior. They coordinate the flow of information between the app’s data model, which encapsulates the app’s data, and the views that display that data, manage the life cycle of their content views, handle orientation changes when the device is rotated, define the navigation within your app, and implement the behavior to respond to user input.
 
-  When we created this app Xcode kindly created a scene (which we've been adding to). If also created the `ViewController.swift` file, and linked in to the scene. In this file, a new subclass of `UIViewController` called `ViewController`.
+  When we created this app Xcode kindly created a scene (which we've been adding to). It also created the `ViewController.swift` file, and linked in to the scene. In this file, a new subclass of `UIViewController` called `ViewController`.
 
-  Although the scene is already linked to the ViewController.swift, but the elements  within the scene (like the text field and button) aren't linked.
+  Although the scene is already linked to the ViewController.swift, the elements  within the scene (like the text field and button) aren't linked.
 
   > AIM: When a user enters a to-do into the `text field`, and taps the `Save` button, the to-do they have entered is added to an array.
 
-  13. Let's go started. Make sure you've got the `Main.storyboard` file open. Now open the **Assistant Editor**, which lets us view 2 files at once. If the right hand pane isn't showing the `ViewController.swift` file, select it from the 'Automatic' dropdown.
+  13. Let's get started. Make sure you've got the `Main.storyboard` file open. Now open the **Assistant Editor**, which lets us view 2 files at once. If the right hand pane isn't showing the `ViewController.swift` file, select it from the 'Automatic' dropdown.
 
     ![assistant editor](./screenshots/assistant_editor.png)
 
-  14. Time to start hooking things up! Control-drag from the `text field` to a few lines below. In the dialog that appears, for Name, type toDoTextField. Xcode will add the necessary code:
+  14. Time to start hooking things up! CTRL-drag from the `text field` in the UI, into the code file, above the function declarations. In the dialog that appears, for 'Name', type `toDoTextField` and hit 'Connect'. Xcode will add the necessary code:
 
     `@IBOutlet var toDoTextField: UITextField!`
 
-    The IBOutlet attribute tells Xcode that you can connect to the nameTextField property from Interface Builder (which is why the attribute has the IB prefix). The rest of the declaration declares a variable of type UITextField named nameTextField.
+    The IBOutlet attribute tells Xcode that you have connected the nameTextField property from Interface Builder (which is why the attribute has the IB prefix). The rest of the declaration declares a variable of type UITextField named `toDoTextField`.
 
     So, our custom ViewController class now has one property - a textField.
 
@@ -122,15 +124,15 @@ It will teach you:
     `var toDoArray : [String] = []`
 
     Our first written bit of Swift! Hurrah! Let's break it down.
+    | code | meaning |
+    | ----- | ------ |
+    | var | Declares a new *mutable* variable |
+    | toDoArray | Name of variable |
+    | : [String]  | This variable will be an array [] of Strings |
 
-    var : Declares a new *mutable* variable
-    toDoArray : Name of variable
-    : : Indicates what object type this variable will be
-    [String] : This variable will be an array [] of Strings
+  16. Action time! We need to define the trigger that will take the text from `toDoTextField`, and put it into the newly defined `toDoArray`. We know that the UI trigger will be the save button. To define the action in code, we're going to CTRL-drag from the button to the `ViewController.swift` file.
 
-  16. Action time! We need to define the trigger that will take the text from `toDoTextField`, and put it into the newly definite `toDoArray`. We know that the UI trigger will be the save button. To define the action in code, we're going to ctrl-drag from the button to the `ViewController.swift` file.
-
-    In the dialog that appears select `Action` for Conneection, and give it a sensible name. Then go ahead and click `Connect`.
+    In the dialog that appears select `Action` for Conneection, and call it `saveButtonTapped`. Then go ahead and click `Connect`.
 
     More generate code!
 
@@ -145,7 +147,7 @@ It will teach you:
 
   17. So, Xcode has generated the method declaration for us, but it's for us to define what happens when the button is tapped. Let's start with something simple - just to check the link has working.
 
-    In between the `{ }` type:
+    Lets give our new function something to do:
       `print("The button did a thing!")`
 
       That's right - it's a classic logging statement!.
@@ -162,7 +164,9 @@ It will teach you:
 
     `Optional("Build something frankly awesome")`
 
-    The short explanation is that Swift introduces a new concept of `optionals`. You can find a much more in depth explanation [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html), but in short:
+    This isn't Swift's way telling you that you're to do item is an Optional task.
+
+    The short explanation is that Swift introduces a new concept of `Optionals`. You can find a much more in depth explanation [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html), but in short:
 
     > Optionals say either “there is a value, and it equals x” or “there isn’t a value at all”. <sup>3</sup>
 
@@ -170,7 +174,7 @@ It will teach you:
 
     Voila! We're logging out the text we put in.
 
-  19. Way back in the heady days a few steps ago we prepared our array to store our to-dos. So let's add it in. Declare a new function called `addStringToArray` which takes one argument, which is a string called `toDoString`. The function will do this:
+  19. Way back in the heady days of a few steps ago we prepared our array to store our to-dos. So let's add it in. Declare a new function called `addStringToArray` which takes one argument, which is a string called `toDoString`. The function will do this:
     `toDoArray.append(toDoString)`
 
     At the end of your `saveButtonTapped`, call your new `addStringToArray` function, passing in the text captured from the text field.
@@ -328,6 +332,6 @@ It will teach you:
 
   ![insert Sims3 UI screenshot](screenshots/sims_ui_2.png)
 
-  <sup>2</sup> Legend tells of a drinking game new iOS devs were forced to play, where a shot of tequila was to be downed on every appearance of new view. Needless to say, after it led to a global shortage of iOS developers, all records of the game were destroy. Except this one.
+  <sup>2</sup> Legend tells of a drinking game new iOS devs were forced to play, where a shot of tequila was to be downed on every appearance of new view in Xcode. Needless to say, after it led to a global shortage of iOS developers, all records of the game were destroyed. Except this one.
 
   <sup>3</sup> [Alternatively](http://commandshift.co.uk/blog/2014/06/11/understanding-optionals-in-swift/), and more poetically: "Optionals are Swift's way of unifying the representation of Nothingness". No? Me neither.
