@@ -65,7 +65,7 @@ It will teach you:
 
     They should now be embedded within a `Stack View`. You can see this if you pop out the Xcode **Outline View**. Yes, another view. Sorry. But this one is pretty useful! It shows us the hierarchy of element in our view.
 
-  10. I'm afraid it's time for ANOTHER view.* Missing Sublime Text yet? Head on over to the **Attributes Inspector**.To get to it, click the fourth button from the left in the inspector selector bar. It lets you edit the properties of an object in your storyboard.
+  10. I'm afraid it's time for ANOTHER view.<sup>1</sup> Missing Sublime Text yet? Head on over to the **Attributes Inspector**.To get to it, click the fourth button from the left in the inspector selector bar. It lets you edit the properties of an object in your storyboard.
 
     AMAL  [screenshot of attributes inspector button and view heirachy!]
 
