@@ -9,7 +9,7 @@ It will teach you:
 
 ## Getting Started
 
-1. Open up Xcode, and select `New Project`. Make sure to set the language as Swift, and leave Core Data unchecked
+1. Open up Xcode, and select `Create a New Xcode Project` then select 'Single View Application' under 'iOS -> Application' and click 'Next'. Make sure to set the language as Swift, set 'Devices' as 'Universal' and leave 'Use Core Data' unchecked
 
 2. Welcome to Xcode! Let's go on a quick whistlestop tour:
 
@@ -39,7 +39,7 @@ It will teach you:
 
   ## Creating our User Interface
 
-  5. From the **Object Library** in the **Utility Area**, find a `Label`. Drag the label onto your empty scene.
+  5. From the **Object Library** in the **Utility Area** (at the bottom right of the window), find a `Label`. Drag the label onto your empty scene.
 
     ![object library](./screenshots/object_library.png)
 
