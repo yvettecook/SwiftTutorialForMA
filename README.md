@@ -53,11 +53,14 @@ It will teach you:
 
   8. Looks pretty good! Let's run the app to see how it's looking.
 
+    ![UI_stage3-noConstraints](./screenshots/UI_stage3-noConstraints.png)
+
     Hmmmm ... that isn't really what we were aiming for. The text is going off the screen. What went wrong?
+
 
     What we're doing is building an *adaptive* interface, that will work on all sizes of screens. It needs to be responsive - which means we need to set some rules for the layout.
 
-  9. For this we'll use a `UIStackView`. The stack view is an interface for laying out several subviews, either vertically or horizontally. It'll help us lay out our 3 element neatly.
+  9. For this we'll use a `UIStackView`. The stack view is an interface for laying out several subviews, either vertically or horizontally. It'll help us lay out our 3 elements neatly.
 
     Hold down **Shift** and select the `Label`, `Text Field` and `Button`. When they're selected, click on the `Stack` button.
 
@@ -65,15 +68,22 @@ It will teach you:
 
     They should now be embedded within a `Stack View`. You can see this if you pop out the Xcode **Outline View**. Yes, another view. Sorry. But this one is pretty useful! It shows us the hierarchy of element in our view.
 
+    ![stack](./screenshots/OutlineView.png)
+
   10. I'm afraid it's time for ANOTHER view.<sup>1</sup> Missing Sublime Text yet? Head on over to the **Attributes Inspector**.To get to it, click the fourth button from the left in the inspector selector bar. It lets you edit the properties of an object in your storyboard.
 
-    AMAL  [screenshot of attributes inspector button and view heirachy!]
+    ![stack](./screenshots/AttrInspector.png)
 
-    Set the Spacing value of the `Stack View` to `12`. Also, set the `Alignment` to `Center` and `Distribution` to `Fill`.
+    Set the Spacing value of the `Stack View` to `12`. Also, set the `Alignment` to `Leading` and `Distribution` to `Fill`.
 
   11. Now we've set how our elements appear *within* the `Stack View`. Next, let's set out where the `Stack View` is placed within the `Scene`.
+      1. Move it to the top of the scene.
+      2. In the 'Outline View', hold CTRL and click-drag from the `Stack View` to the `View` listed in the view heirachy, and selected `Leading Space to Container Margin`, `Trailing Space to Container Margin` and `Vertical Spacing to Top Layout Guide.` - tip: if you hold SHIFT whilst clicking, you can select more than one at a time.
+      3. Lastly we need to make out `StackView` fill the width of the screen. Select the `StackView` and open the 'Size Inspector' in the 'Utility Area'. (The button that looks like a ruler). Under the 'Constraints' heading we can see our 3 constraints that we just set before.
 
-    Let's put it at the top of the scene, spanning the full with available. Drag the stack view to top of the scene. Then click and drag from the `Stack View` to the `View` listed in the view heirachy, and selected `Leading Space to Container Margin`, `Trailing Space to Container Margin` and `Vertical Spacing to Top Layout Guide.`
+      ![stack](./screenshots/constraints.png)
+
+      Edit all three constraints in turn, making sure the constant value is set to 0. Your `StackView` size should update when you do this to fill the width of the Scene.
 
   12. Run the app! It should look something like this:
 
