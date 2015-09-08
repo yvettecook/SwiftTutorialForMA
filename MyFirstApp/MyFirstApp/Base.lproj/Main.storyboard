@@ -50,20 +50,58 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LMw-iF-yhL">
+                                <rect key="frame" x="20" y="133" width="560" height="447"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoTableViewCell" id="dbE-dM-QHd" customClass="ToDoTableViewCell" customModule="MyFirstApp">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbE-dM-QHd" id="kAJ-kW-tyc">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJv-oq-eHE">
+                                                    <rect key="frame" x="8" y="11" width="544" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="ToDoCell"/>
+                                        <connections>
+                                            <outlet property="toDoCellLabel" destination="yJv-oq-eHE" id="ckL-Vk-u1h"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="LMw-iF-yhL" secondAttribute="leading" id="YJS-lr-atK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LMw-iF-yhL" secondAttribute="trailing" id="dI0-kt-Vbd"/>
                             <constraint firstItem="vxf-la-QWI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eCe-b0-8Ls"/>
+                            <constraint firstItem="LMw-iF-yhL" firstAttribute="top" secondItem="vxf-la-QWI" secondAttribute="bottom" constant="8" id="fNG-cK-4pT"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="LMw-iF-yhL" secondAttribute="leading" id="hlz-AD-sBg"/>
                             <constraint firstItem="vxf-la-QWI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jbE-gi-hSU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vxf-la-QWI" secondAttribute="trailing" id="rmq-9C-ZUb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LMw-iF-yhL" secondAttribute="bottom" constant="20" id="zcy-dF-sBc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YJS-lr-atK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="LMw-iF-yhL" id="kSV-Kj-qcc"/>
                         <outlet property="toDoTextField" destination="UJ9-B4-Kie" id="XEr-KE-KPf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="280" y="395"/>
         </scene>
     </scenes>
 </document>

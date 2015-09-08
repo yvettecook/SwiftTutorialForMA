@@ -3,7 +3,7 @@ This tutorial is a slimmed down and simplified version of the official Apple [*S
 
 It will teach you:
 
-
+*
 
 
 
@@ -185,13 +185,15 @@ It will teach you:
 
   20. Great! We're now accepting user input, and storing it. Next step is to show off all the to-dos we're storing.
 
-    We're going to use a UITableView to do this. Not only do they look great, they are used *everywhere* in mobile applications. Check out your Settings, Email, Music, Contacts or Social Media apps if you don't believe me. UITableViews also come with a lot of functionalitybuilt-in, such as scroll views and gesture recognition.
+    We're going to use a UITableView to do this. Not only do they look great, they are used *everywhere* in mobile applications. Check out your Settings, Email, Music, Contacts or Social Media apps if you don't believe me. UITableViews also come with a lot of functionality built-in, such as scrolling and gesture recognition.
 
-    First we're going to drop a table into our `storyboard`. Open the right-hand drawer, and drag a `Table View` (not a `table view controller`) onto the scene. Open up the `Outline View` in Xcode by clicking on the button highlighted below.
+    First we're going to drop a table into our `storyboard`. Open the right-hand drawer, and drag a `Table View` (not a `table view controller`) onto the scene, outside of the `StackView`. Open up the `Outline View` in Xcode by clicking on the button highlighted below.
 
-    AMAL [insert screenshot]
+    ![outline_view](screenshots/OutlineView.png)
 
-    On the `Outline View` Click-drag from the `Table View` to the Add Auto Layout constraints to pin the left, right and bottom sides to the container margin. Then click-drag from the `Table View` to the `Stack View` and add a `Vertical Spacing` constraint.
+    Now resize the `TableView` so that it occupies the remainder of the scene, we can do this by dragging its resize anchors in each direction until we are happy with it.
+
+    Then in the `Outline View` CTRL-drag from the `Table View` to the parent 'View' and set the constraints for 'Leading Space to Container Margin', 'Trailing Space to Container Margin' and `Vertical Spacing to Bottom Layout Guide` Then CTRL-drag from the `Table View` to the `Stack View` and add a `Vertical Spacing` constraint.
 
     If you run the app now you will see a table view full of empty rows.
 

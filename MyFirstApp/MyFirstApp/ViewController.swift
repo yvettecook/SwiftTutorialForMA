@@ -8,14 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var toDoTextField: UITextField!
+    @IBOutlet var tableView: UITableView!
     
-    var toDoArray : [String] = []
+    var toDoArray : [String] = ["Eat", "Sleep", "Code"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -30,8 +33,26 @@ class ViewController: UIViewController {
         print(toDoArray)
     }
     
+    // MARK: TableView DataSource and Delegate
+    
     func addStringToArray(toDoString: String){
         toDoArray.append(toDoString)
+        tableView.reloadData()
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return toDoArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "ToDoTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ToDoTableViewCell
+        cell.toDoCellLabel.text = toDoArray[indexPath.row]
+        return cell
     }
 
 }
