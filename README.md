@@ -1,10 +1,12 @@
 
 This tutorial is a slimmed down and simplified version of the official Apple [*Start Developing iOS Apps with Swift*](https://developer.apple.com/library/prerelease/ios/referencelibrary/GettingStarted/DevelopiOSAppsSwift/Lesson7.html#//apple_ref/doc/uid/TP40015214-CH8-SW1) tutorial.
 
-It will teach you:
+You will learn:
 
-*
-
+* How to build a basic iOS app
+* Coding in Swift
+* Using Xcode (IDEs: The beginning of the end or the end of the beginning. Discuss)
+* Interface Builder - building (adaptive) interfaces
 
 
 ## Getting Started
@@ -90,6 +92,8 @@ It will teach you:
   12. Run the app! It should look something like this:
 
   ![UI-stage3](./screenshots/UI_stage3.png)
+
+  Also, have a go at running your app in
 
   ## Connecting the UI to Code
 
@@ -205,7 +209,7 @@ It will teach you:
 
     ![cell_identifier](screenshots/cell_identifier.png)
 
-    In the next tab on the right-hand drawer, find the `Class` field. We want this cell to be of the new class we created, so go ahead and select (or type) `ToDoTableViewCell` into the field. In the `Module` field below, make sure your project name is selected
+    In the previous tab (on the left) on the right-hand drawer, find the `Class` field. We want this cell to be of the new class we created, so go ahead and select (or type) `ToDoTableViewCell` into the field. In the `Module` field below, make sure your project name is selected
 
     ![cell_class](screenshots/cell_class.png)
 
@@ -269,9 +273,9 @@ It will teach you:
 
     Our array has 3 objects in it, so the table should have 3 rows with a label saying 'Label' in them. But it doesn't. What's wrong?
 
-   30. What we're missing is a connection between the `TableView` on our UI, and the `tableView` we're trying to controller in our delegate and datasource functions. At the moment our app is treating them as seperate objects - our UI table view is acting blindly, and our code isn't controlling anything in the UI. So let's connect them up.
+   30. What we're missing is a connection between the `TableView` on our UI, and the `tableView` we're trying to control in our delegate and datasource functions. At the moment our app is treating them as separate objects - our UI table view is acting blindly, and our code isn't controlling anything in the UI. So let's connect them up.
 
-    First click-drag from the `Table View` on the storyboard to our `ViewController` class. As with the labels and text fields, we want to creat an `@IBOutlet`, and call it `tableView`.
+    First click-drag from the `Table View` on the storyboard to our `ViewController` class. As with the labels and text fields, we want to create an `@IBOutlet`, and call it `tableView`.
 
     Next, in the `viewDidLoad` function, add the following lines:
 
@@ -298,7 +302,7 @@ It will teach you:
 
     This key is this bit: "reason: 'unable to dequeue a cell with identifier ToDoTableViewCell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard'"
 
-    Our table view has tried to create a cell with the unique identifier "ToDoTableViewCell", but hasn;t been able to find one.
+    Our table view has tried to create a cell with the unique identifier "ToDoTableViewCell", but hasn't been able to find one.
 
     Go back to the storyboard, and check the identifier we gave our prototype cell.
 
@@ -322,7 +326,23 @@ It will teach you:
 
     ![success](./screenshots/sucess.png)
 
+    Also, remember what we said about building an 'adaptive' interface? Why not trying running the app on an iPad simulator?
 
+
+## Further Challenges
+
+The UITableView documentation may come in handy for some of these: https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableViewDataSource_Protocol/
+
+1. After adding a todo to your list, make sure the app clears the textfield, so that it's ready for your next task
+2. What if we complete a todo? If a user selects (taps) a cell, make the text grey (or any other colour!) to indicate that it's done.
+3. Completed to-dos piling up? Add 'swipe-to-delete' functionality to your table.
+4. Let's be honest, right now the app is kind of an ugly duckling. Make it beautiful!
+
+## Further Extensions
+
+1. Test! Supoort for testing is growing an improving in iOS, and there are some great tools out there. Get started with XCTest and UITesting. Out `addStringToArray` function might be a good candidate for a unit test ...
+
+2. Pomodoro timers are cool. Why not let our users tap on a to-do item to go to a new scene displaying your todo along with a 25 minute timer?
 
 
 
