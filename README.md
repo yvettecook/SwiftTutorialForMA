@@ -1,3 +1,5 @@
+#### Note: I've now written a bigger, better (and more tested) tutorial, which you can find on [Medium](https://medium.com/@ynzc/getting-started-with-tdd-in-swift-2fab3e07204b)
+
 
 This tutorial is a slimmed down and simplified version of the official Apple [*Start Developing iOS Apps with Swift*](https://developer.apple.com/library/prerelease/ios/referencelibrary/GettingStarted/DevelopiOSAppsSwift/Lesson7.html#//apple_ref/doc/uid/TP40015214-CH8-SW1) tutorial.
 
